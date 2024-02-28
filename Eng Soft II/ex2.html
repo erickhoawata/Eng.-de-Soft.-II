@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+    Faixa etária
+</title>
+<meta charset="utf-8">
+</head>
+<body>
+    <h3>Érick Hideki Oyakawa Awata</h3>
+    <ul >
+        <a href="ex1.html">Exercício I</a>
+        <a href="ex2.html">Exercício II</a>
+        <a href="ex3.html">Exercício III</a>
+        <a href="ex4.html">Exercício IV</a>
+        <a href="ex5.html">Exercício V</a>
+        <a href="ex6.html">Exercício VI</a>
+        <a href="ex7.html">Exercício VVI</a>
+    </ul>
+    <h3>Verifica idade</h3>
+<form name="formCadastro" onsubmit="return faixaEtaria()" method="post">
+    <label for="idade">Digite a sua idade:</label>
+    <input type="text" name="idade">
+    <input type="submit" value="Enviar">
+</form>
+<script>
+    function faixaEtaria(){
+        var idade = document.forms["formCadastro"]["idade"].value;
+        if (idade == "") {
+            alert("Favor informar a sua idade!");
+            return false;    
+        }
+        if (idade >= 0 && idade < 15){
+            alert("Criança!");
+            return false;  
+        }
+        if (idade >= 15 && idade < 30){
+            alert("Jovem!");
+            return false;  
+        }
+        if (idade >= 30 && idade < 60){
+            alert("Adulto!");
+            return false;  
+        }
+        if (idade > 60){
+            alert("Idoso!");
+            return false;  
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data por Extenso</title>
+</head>
+<body>
+    <h3>Érick Hideki Oyakawa Awata</h3>
+    <ul >
+        <a href="ex1.html">Exercício I</a>
+        <a href="ex2.html">Exercício II</a>
+        <a href="ex3.html">Exercício III</a>
+        <a href="ex4.html">Exercício IV</a>
+        <a href="ex5.html">Exercício V</a>
+        <a href="ex6.html">Exercício VI</a>
+        <a href="ex7.html">Exercício VVI</a>
+    </ul>
+    <h2>Data por Extenso</h2>
+    <label for="dataInput">Digite a data no formato 'dd/mm/aaaa':</label>
+    <input type="text" id="dataInput">
+    <button onclick="escreverDataPorExtenso()">Escrever Data por Extenso</button>
+    <p id="resultado" style="display: none;"></p>
+ 
+    <script>
+        function escreverDataPorExtenso() {
+            var dataInput = document.getElementById("dataInput").value;
+            var dataExtenso = dataPorExtenso(dataInput);
+            document.getElementById("resultado").textContent = dataExtenso;
+            document.getElementById("resultado").style.display = "block";
+        }
+ 
+        function dataPorExtenso(data) {
+            // Separar a data em dia, mês e ano
+            var partes = data.split("/");
+            var dia = parseInt(partes[0]);
+            var mes = parseInt(partes[1]);
+            var ano = parseInt(partes[2]);
+ 
+            // Array com os nomes dos meses
+            var meses = [
+                "janeiro", "fevereiro", "março", "abril",
+                "maio", "junho", "julho", "agosto",
+                "setembro", "outubro", "novembro", "dezembro"
+            ];
+ 
+            // Montar a data por extenso
+            var dataExtenso = dia + " de " + meses[mes - 1] + " de " + ano;
+ 
+            return dataExtenso;
+        }
+    </script>
+</body>
+</html>

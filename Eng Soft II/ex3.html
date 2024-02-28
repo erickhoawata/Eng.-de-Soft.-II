@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Média Ponderada</title>
+</head>
+<body>
+    <h3>Érick Hideki Oyakawa Awata</h3>
+    <ul >
+        <a href="ex1.html">Exercício I</a>
+        <a href="ex2.html">Exercício II</a>
+        <a href="ex3.html">Exercício III</a>
+        <a href="ex4.html">Exercício IV</a>
+        <a href="ex5.html">Exercício V</a>
+        <a href="ex6.html">Exercício VI</a>
+        <a href="ex7.html">Exercício VVI</a>
+    </ul>
+    <h3>Calcula média ponderada</h3>
+    <label for="nota1">Nota da atividade prática em laboratório: </label>
+    <input type="number" id="nota1" placeholder="Nota 1 (0-10)"><br><br>
+
+    <label for="nota2">Nota da prova do semestre: </label>
+    <input type="number" id="nota2" placeholder="Nota 2 (0-10)"><br><br>
+
+    <label for="nota3">Nota do trabalho teórico:</label>
+    <input type="number" id="nota3" placeholder="Peso 3 (0-10)"><br><br>
+
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="resultadoMedia"></p>
+
+    <script>
+        function calcularMedia() {
+            var nota1 = parseFloat(document.getElementById('nota1').value);
+            var nota2 = parseFloat(document.getElementById('nota2').value);
+            var nota3 = parseFloat(document.getElementById('nota3').value);
+
+            var media = ((2 * nota1) + (5 * nota2) + (3 * nota3)) / 10;
+
+            var resultadoMedia = document.getElementById('resultadoMedia');
+            resultadoMedia.textContent = "A média do aluno é = " + media.toFixed(2);
+
+            if (media >= 0 && media < 5) {
+                resultadoMedia.textContent += " e a sua classificação éF";
+            } else if (media >= 5 && media < 6) {
+                resultadoMedia.textContent += " e a sua classificação é E";
+            } else if (media >= 6 && media < 7) {
+                resultadoMedia.textContent += " e a sua classificação é D";
+            } else if (media >= 7 && media < 8) {
+                resultadoMedia.textContent += " e a sua classificação é C";
+            } else if (media >= 8 && media < 9) {
+                resultadoMedia.textContent += " e a sua classificação é B";
+            } else if (media >= 9 && media <= 10) {
+                resultadoMedia.textContent += " e a sua classificação é A";
+            } else {
+                resultadoMedia.textContent += " Média inválida";
+            }
+        }
+    </script>
+</body>
+</html>

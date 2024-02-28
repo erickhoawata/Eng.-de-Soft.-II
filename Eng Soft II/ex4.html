@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+    Faixa etária
+</title>
+<meta charset="utf-8">
+</head>
+<body>
+    <h3>Érick Hideki Oyakawa Awata</h3>
+    <ul >
+        <a href="ex1.html">Exercício I</a>
+        <a href="ex2.html">Exercício II</a>
+        <a href="ex3.html">Exercício III</a>
+        <a href="ex4.html">Exercício IV</a>
+        <a href="ex5.html">Exercício V</a>
+        <a href="ex6.html">Exercício VI</a>
+        <a href="ex7.html">Exercício VVI</a>
+    </ul>
+    <form>
+        <h3>Calcular o valor de frete</h3>
+        <label for="num">Digite o numero de peças: </label>
+        <input type="number" id="num"><br><br>
+
+        <label for="ent">Selecione a região de entrega: </label>
+        <select name="ent" id="ent">
+          <option value="1">Sul</option>
+          <option value="2">Sudeste</option>
+          <option value="3">Centro Oeste</option>
+        </select>
+        <br><br>
+
+        <label for="dis">Digite a distância em km: </label>
+        <input type="number" id="dis"><br><br>
+
+        <h3>Você deseja entrega com rastreamento? (Serão adicionados R$200,00 de taxa.) </h3>
+        <input type="radio" id="html"name="p" value="SIM">
+        <label for="sim">SIM</label><br>
+        <input type="radio" id="nao" name="p" value="NAO">
+        <label for="nao">NÃO</label><br><br>
+        <input type="submit" value="Enviar">
+      </form>
+      <script>
+        function calcularMedia() {
+            var num = parseFloat(document.getElementById('num').value);
+            var dis = parseFloat(document.getElementById('dis').value);
+
+        }
+            valor.textContent = "A média do aluno é = " + valor.toFixed(2);
+            dis.textContent = "A média do aluno é = " + dis.toFixed(2);
+            num.textContent = "A média do aluno é = " + num.toFixed(2);
+            ent.textContent = "A média do aluno é = " + ent;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folha de Pagamento</title>
+</head>
+<body>
+    <h3>Érick Hideki Oyakawa Awata</h3>
+    <ul >
+        <a href="ex1.html">Exercício I</a>
+        <a href="ex2.html">Exercício II</a>
+        <a href="ex3.html">Exercício III</a>
+        <a href="ex4.html">Exercício IV</a>
+        <a href="ex5.html">Exercício V</a>
+        <a href="ex6.html">Exercício VI</a>
+        <a href="ex7.html">Exercício VVI</a>
+    </ul>
+    <h3>Calcula salário mínimo</h3>
+    <form id="formulario">
+        <label for="salarioMinimo">Salário Mínimo:</label>
+        <input type="number" id="salarioMinimo" required><br><br>
+ 
+        <label for="codigo">Código do funcionário:</label>
+        <input type="number" id="codigo" required><br><br>
+ 
+        <label for="horasTrabalhadas">Horas trabalhadas no mês:</label>
+        <input type="number" id="horasTrabalhadas" required><br><br>
+ 
+        <label for="turno">Turno de trabalho:</label>
+        <select id="turno" required>
+            <option value="M">Matutino</option>
+            <option value="V">Vespertino</option>
+            <option value="N">Noturno</option>
+        </select><br><br>
+ 
+        <label for="categoria">Categoria do funcionário:</label>
+        <select id="categoria" required>
+            <option value="F">Funcionário</option>
+            <option value="G">Gerente</option>
+        </select><br><br>
+ 
+        <button type="submit">Calcular Folha de Pagamento</button>
+    </form>
+ 
+    <div id="resultado" style="display: none;">
+        <h3>Resultado</h3>
+        <p><strong>Código:</strong> <span id="codigoResultado"></span></p>
+        <p><strong>Horas trabalhadas:</strong> <span id="horasTrabalhadasResultado"></span></p>
+        <p><strong>Valor da hora trabalhada:</strong> <span id="valorHoraTrabalhadaResultado"></span></p>
+        <p><strong>Salário inicial:</strong> <span id="salarioInicialResultado"></span></p>
+        <p><strong>Auxílio alimentação:</strong> <span id="auxilioAlimentacaoResultado"></span></p>
+        <p><strong>Salário final:</strong> <span id="salarioFinalResultado"></span></p>
+    </div>
+ 
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var salarioMinimo = parseFloat(document.getElementById("salarioMinimo").value);
+            var codigo = parseInt(document.getElementById("codigo").value);
+            var horasTrabalhadas = parseInt(document.getElementById("horasTrabalhadas").value);
+            var turno = document.getElementById("turno").value;
+            var categoria = document.getElementById("categoria").value;
+ 
+            var valorHoraTrabalhada;
+            switch (categoria) {
+                case 'F':
+                    switch (turno) {
+                        case 'M':
+                            valorHoraTrabalhada = salarioMinimo * 0.01;
+                            break;
+                        case 'V':
+                            valorHoraTrabalhada = salarioMinimo * 0.01;
+                            break;
+                        case 'N':
+                            valorHoraTrabalhada = salarioMinimo * 0.02;
+                            break;
+                        default:
+                            console.log("Turno inválido.");
+                    }
+                    break;
+                case 'G':
+                    switch (turno) {
+                        case 'M':
+                            valorHoraTrabalhada = salarioMinimo * 0.04;
+                            break;
+                        case 'V':
+                            valorHoraTrabalhada = salarioMinimo * 0.04;
+                            break;
+                        case 'N':
+                            valorHoraTrabalhada = salarioMinimo * 0.07;
+                            break;
+                        default:
+                            console.log("Turno inválido.");
+                    }
+                    break;
+                default:
+                    console.log("Categoria inválida.");
+            }
+ 
+            var salarioInicial = valorHoraTrabalhada * horasTrabalhadas;
+ 
+            var auxilioAlimentacao;
+            if (salarioInicial <= 800) {
+                auxilioAlimentacao = salarioMinimo * 0.25;
+            } else if (salarioInicial > 800 && salarioInicial <= 1200) {
+                auxilioAlimentacao = salarioMinimo * 0.2;
+            } else {
+                auxilioAlimentacao = salarioMinimo * 0.15;
+            }
+ 
+            var salarioFinal = salarioInicial + auxilioAlimentacao;
+ 
+            document.getElementById("codigoResultado").textContent = codigo;
+            document.getElementById("horasTrabalhadasResultado").textContent = horasTrabalhadas;
+            document.getElementById("valorHoraTrabalhadaResultado").textContent = valorHoraTrabalhada.toFixed(2);
+            document.getElementById("salarioInicialResultado").textContent = salarioInicial.toFixed(2);
+            document.getElementById("auxilioAlimentacaoResultado").textContent = auxilioAlimentacao.toFixed(2);
+            document.getElementById("salarioFinalResultado").textContent = salarioFinal.toFixed(2);
+            document.getElementById("resultado").style.display = "block";
+        });
+    </script>
+</body>
+</html>
